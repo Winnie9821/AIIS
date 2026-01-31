@@ -1,0 +1,36 @@
+
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+            <div class="contact-form fade-in">
+                    <form method="POST" action="{% url 'inquiry' %}">
+                        {% csrf_token %}
+
+                    <input type="text" name="name" placeholder="Your Name" required>
+
+                    <input type="email" name="email" placeholder="Your Email" required>
+
+                    <input type="tel" name="phone" placeholder="Your Phone Number">
+
+                    <select name="service" required style="width: 100%; padding: 15px; margin-bottom: 20px; background-color: rgba(14, 13, 13, 0.1); border: 1px solid var(--border-color); border-radius: var(--radius); color: white;">
+                        <option value="" disabled selected>Select Service</option>
+                        <option value="CCTV Installation">CCTV Installation</option>
+                        <option value="Car Tracking">Car Tracking</option>
+                        <option value="Alarm Systems">Alarm Systems</option>
+                        <option value="Access Control">Access Control</option>
+                        <option value="Maintenance">Maintenance</option>
+                        <option value="Product Inquiry">Product Inquiry</option>
+                    </select>
+
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+
+            </div>
+            
+{% endblock %}
+
+
